@@ -22,13 +22,14 @@ bool isPalindrome_nostringconvert(int input) {
         return false;
     }
 
+    // NOTE: using <= 10, and then doing max_divider /= 10 after the loop, fails 
+    // if the input is too big.
     while (max_divider < INT_MAX) {
-        if (input/max_divider == 0) {
+        if (input/max_divider < 10) {
             break;
         }
         max_divider *= 10;
     }
-    max_divider /= 10;
 
     #if KENNY_DEBUGGING// DEBUGGING:
     cout << "input = " << input << ". max_divider = " << max_divider << endl;
@@ -66,6 +67,7 @@ bool isPalindrome_stringconvert(int input) {
     string input_str = ss.str();
     int len = input_str.length() - 1;
     
+    // NOTE: using < instead of <= will fail when the input is 2 digits
     for (int i = 0; i <= len/2; ++i)
     {
         if (input_str.at(i) != input_str.at(len-i))
@@ -86,18 +88,20 @@ int main() {
         92500529,
         235532,
         999999999,
-        55555,
+        11,
         1,
         5,
-        232
+        2000000002,
+        55555
     };
-    const int num_fail_tests = 7;
+    const int num_fail_tests = 8;
     int non_palindromes[num_fail_tests] = {
         12,
         1412,
         83885,
         123432,
         59599,
+        2000000003,
         -1,
         -151
     };
