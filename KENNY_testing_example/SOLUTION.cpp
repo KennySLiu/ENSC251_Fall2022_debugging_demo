@@ -37,7 +37,7 @@ bool isPalindrome_nostringconvert(int input) {
     
     // Divider helps us sweep through all the digits in the input.
     for (   int RDivider = 1, ctr = 0; 
-            RDivider <= max_divider;
+            RDivider < max_divider;
             RDivider *= 10, ctr++)
     {
         int LDivider = (max_divider / RDivider);

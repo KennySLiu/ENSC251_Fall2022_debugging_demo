@@ -19,6 +19,11 @@ bool isPalindrome_nostringconvert(int input) {
 /*************/
 
 bool isPalindrome_stringconvert(int input) {
+    stringstream ss;
+    ss << input;
+    string input_str = ss.str();
+
+
     return false;
 }
 
