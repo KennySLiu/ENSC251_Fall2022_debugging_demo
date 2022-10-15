@@ -18,7 +18,7 @@ unsigned long dotprod(int a[VEC_LEN], int b[VEC_LEN])
 unsigned long summation(unsigned long input)
 {
     unsigned long sum = 0;
-    for(unsigned long i = input; i > 0; i--)
+    for(unsigned long i = input; i >= 0; i--)
     {
         sum += i;
     }
